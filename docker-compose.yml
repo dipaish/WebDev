@@ -21,7 +21,7 @@ services:
     ports:
       - "6034:3306"   #6034 in the the local machine and 3306 in the container
     volumes: # it persists updates made to the database
-      - ./data:/var/lib/mysql
+      - dbdata:/var/lib/mysql
     networks:
       - lan
 
@@ -51,11 +51,12 @@ services:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
     networks:
       - lan
   
-#volumes:
-  #dbdata:
+volumes:
+  dbdata:
 networks:
   lan:
   
