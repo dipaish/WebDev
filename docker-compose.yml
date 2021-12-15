@@ -15,9 +15,7 @@ services:
       
   db: # mysql database server
     image: mysql:latest
-     #container_name: db we can take this continaername off
-     #this restarts the service upon any configuration changes
-     restart: always
+    restart: always #this restarts the service upon any configuration changes
     environment: # to use and access MySQL server,we neet to set up an authentication environment
       MYSQL_ROOT_PASSWORD: password
     ports:
